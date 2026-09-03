@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Archivo Black", "Arial Black", sans-serif;
+  --font-body: "Inter", -apple-system, sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #f1ece1;
+  color: #14110e;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Signature motif: a repeating diamond/cross lattice drawn from Sindhi ajrak
+   block-print geometry. Used sparingly as a single section divider. */
+.motif-strip {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill='none' stroke='%239C3B26' stroke-width='1.4'%3E%3Cpath d='M20 2 L38 20 L20 38 L2 20 Z'/%3E%3Ccircle cx='20' cy='20' r='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: repeat-x;
+  background-size: 40px 40px;
+}
+
+.focus-ring {
+  outline: none;
+}
+.focus-ring:focus-visible {
+  outline: 2px solid #9c3b26;
+  outline-offset: 2px;
+}
+
+.text-outline {
+  -webkit-text-stroke: 1.5px #14110e;
+  color: transparent;
+}
+
+::selection {
+  background-color: #9c3b26;
+  color: #f1ece1;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 18s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
