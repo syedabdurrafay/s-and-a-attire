@@ -2,9 +2,12 @@
 
 const nextConfig = {
   output: "export",
+
   basePath: "/s-and-a-attire-",
+
   images: {
     unoptimized: true,
+
     remotePatterns: [
       {
         protocol: "https",
