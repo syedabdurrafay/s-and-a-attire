@@ -1,5 +1,7 @@
+"use client";
+
 // app/product/[slug]/page.jsx
-import { Suspense } from "react"; // ← ADD THIS
+import { Suspense } from "react";
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
