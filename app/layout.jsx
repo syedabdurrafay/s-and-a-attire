@@ -10,12 +10,16 @@ const archivoBlack = Archivo_Black({
   weight: "400",
   variable: "--font-display",
   display: "swap",
+  // Add fallback to prevent build failures
+  fallback: ['Impact', 'Arial Black', 'sans-serif'],
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-body",
   display: "swap",
+  // Add fallback to prevent build failures
+  fallback: ['system-ui', 'Arial', 'sans-serif'],
 });
 
 const spaceMono = Space_Mono({
@@ -23,6 +27,8 @@ const spaceMono = Space_Mono({
   weight: ["400", "700"],
   variable: "--font-mono",
   display: "swap",
+  // Add fallback to prevent build failures
+  fallback: ['Courier New', 'monospace'],
 });
 
 export const metadata = {
