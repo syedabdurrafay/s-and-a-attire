@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import ProductCard from "./ProductCard";
@@ -22,7 +22,8 @@ const AVAILABILITY_FILTERS = [
   { label: "Sold Out", value: "sold" },
 ];
 
-export default function ProductGrid({ title, products, viewAllHref = "/shop" }) {
+// This component uses useSearchParams (needs Suspense)
+function ProductGridContent({ title, products, viewAllHref = "/shop" }) {
   const searchParams = useSearchParams();
   const router = useRouter();
   const pathname = usePathname();
@@ -127,5 +128,14 @@ export default function ProductGrid({ title, products, viewAllHref = "/shop" }) 
         </div>
       )}
     </section>
+  );
+}
+
+// Main export with Suspense boundary
+export default function ProductGrid(props) {
+  return (
+    <Suspense fallback={<div className="py-10 text-center">Loading products...</div>}>
+      <ProductGridContent {...props} />
+    </Suspense>
   );
 }
